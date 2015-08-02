@@ -1,0 +1,24 @@
+{
+	"server" : {
+		"name" : "localhost",
+		"port" : 1883
+	},
+	"channels" : [
+		"/room1/lightswitch1",
+		"/room1/lightswitch2"
+	],
+	"rules" : [
+		{
+			"source" : "/room1/lightswitch1",
+			"match" : "off",
+			"destination" : "/room1/lamp1",
+			"push" : "off"
+		},
+		{
+			"source" : "/room1/lightswitch1",
+			"match" : "on",
+			"destination" : "/room1/lamp1",
+			"push" : "on"
+		}
+	]
+}
