@@ -15,6 +15,7 @@ def on_connect( client, userdata, flags, rc ):
     print( "Connected" )
 
 client = mqtt.Client()
+client.on_connect = on_connect
 
 client.connect( config['server']['name'], config['server']['port'], 60 )
 
@@ -23,6 +24,7 @@ client.loop_start()
 switch = 0
 
 while True:
+    print( "Sending update" )
     if switch == 0:
         client.publish( '/room1/lightswitch1', 'off' )
         switch = 1

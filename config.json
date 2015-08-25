@@ -1,24 +1,38 @@
 {
-	"server" : {
-		"name" : "localhost",
-		"port" : 1883
+	"server": 
+	{
+		"name": "localhost",
+		"port": 1883
 	},
-	"channels" : [
+	"channels": 
+	[
 		"/room1/lightswitch1",
 		"/room1/lightswitch2"
 	],
-	"rules" : [
+	"rules": [
 		{
-			"source" : "/room1/lightswitch1",
-			"match" : "off",
-			"destination" : "/room1/lamp1",
-			"push" : "off"
+			"match": {
+				"address": "/room1/lightswitch1",
+				"message": "off"
+			},
+			"push": [
+				{
+					"address": "/room1/lamp1",
+					"message": "off"
+				}
+			]
 		},
 		{
-			"source" : "/room1/lightswitch1",
-			"match" : "on",
-			"destination" : "/room1/lamp1",
-			"push" : "on"
+			"match": {
+				"address": "/room1/lightswitch1",
+				"message": "on"
+			},
+			"push": [
+				{
+					"address": "/room1/lamp1",
+					"message": "on"
+				}
+			]
 		}
 	]
 }
